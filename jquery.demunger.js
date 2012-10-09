@@ -1,24 +1,31 @@
 !function($) {
     $.fn.demunge = function(options) {
         var defaults = {
-            encoding: "reverse",
+            munging: "reverse",
             mailTo: true
         };
 
         options = $.extend({}, defaults, options);
 
         return this.each(function() {
-            var munged = $(this).text();
-            var demunged;
+            var munged = $(this).text(), munging, demunged;
 
-            switch (options.encoding)
-            {
-                case "reverse":
-                    demunged = munged.split("").reverse().join("");
-                    break;
-                default:
-                    demunged = munged;
-            }
+            munging = $.map($.makeArray(options.munging), function(element, i) {
+                return $.type(element) === "string"
+                    ? { type: element, param: "" }
+                    : element;
+            });
+
+            demunged = munged;
+
+            $.each(munging, function(i, element) {
+                switch (element.type)
+                {
+                    case "reverse":
+                        demunged = demunged.split("").reverse().join("");
+                        break;
+                }
+            });
 
             if (options.mailTo)
                 demunged = $("<a />").attr("href", "mailto:" + demunged).text(demunged);
