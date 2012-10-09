@@ -26,6 +26,9 @@
                     case "reverse":
                         demunged = demunged.split("").reverse().join("");
                         break;
+                    case "spaces":
+                        demunged = demunged.replace(/ /g, "");
+                        break;
                 }
             });
 
