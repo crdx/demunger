@@ -1,3 +1,5 @@
+"use strict";
+
 !function($) {
     $.fn.demunge = function(options) {
         var defaults = {
