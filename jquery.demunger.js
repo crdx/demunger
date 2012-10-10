@@ -1,14 +1,14 @@
 "use strict";
 
 !function($) {
-    $.fn.demunge = function(options) {
-        var defaults = {
+    $.fn.demunge = function(userOptions) {
+        var options = {
             munging: "reverse",
             mailTo: false,
             clear: ""
         };
 
-        options = $.extend({}, defaults, options);
+        $.extend(options, userOptions);
 
         return this.each(function() {
             var munging, demunged,
