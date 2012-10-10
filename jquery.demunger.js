@@ -27,7 +27,7 @@
                 var param = element.param || "";
 
                 // check if the parameter exists here so we can just assume it exists below
-                if ($.inArray(element.type, needParam) >= 0 && param.length == 0)
+                if ($.inArray(element.type, needParam) >= 0 && !param)
                     return true;
 
                 switch (element.type)
@@ -47,7 +47,7 @@
             if (options.mailTo)
                 demunged = $("<a />").attr("href", "mailto:" + demunged).text(demunged);
 
-            if (options.clear.length > 0)
+            if (options.clear)
                 $(options.clear).empty();
 
             $(this).html(demunged);
