@@ -12,7 +12,7 @@
 
         return this.each(function() {
             var munging, demunged,
-                needParam = [ "keyword" ],
+                needParam = ["keyword", "traditional"],
                 munged = $(this).text();
 
             munging = $.map($.makeArray(options.munging), function(element, i) {
@@ -32,6 +32,14 @@
 
                 switch (element.type)
                 {
+                    case "traditional":
+                        if (param.length != 2)
+                            break;
+
+                        demunged = demunged.replace(new RegExp(escape(param[0] + "at" + param[1]), "g"), "@");
+                        demunged = demunged.replace(new RegExp(escape(param[0] + "dot" + param[1]), "g"), ".");
+
+                        break;
                     case "reverse":
                         demunged = demunged.split("").reverse().join("");
                         break;
@@ -52,5 +60,10 @@
 
             $(this).html(demunged);
         });
+    }
+
+    // escape arbitrary text so it's suitable for a regexp search/replace
+    var escape = function(str) {
+        return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
     }
 } (jQuery);
