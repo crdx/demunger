@@ -47,7 +47,7 @@
                         demunged = demunged.replace(/ /g, "");
                         break;
                     case "keyword":
-                        demunged = demunged.replace(new RegExp(param, "g"), "");
+                        demunged = demunged.replace(new RegExp(escape(param), "g"), "");
                         break;
                 }
             });
