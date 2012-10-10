@@ -47,7 +47,7 @@
             if (options.mailTo)
                 demunged = $("<a />").attr("href", "mailto:" + demunged).text(demunged);
 
-            if ($.type(options.clear) !== "undefined" && options.clear.length > 0)
+            if (options.clear.length > 0)
                 $(options.clear).empty();
 
             $(this).html(demunged);
