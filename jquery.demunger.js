@@ -10,8 +10,9 @@
         options = $.extend({}, defaults, options);
 
         return this.each(function() {
-            var munged = $(this).text(), munging, demunged,
-                needParam = [ "keyword" ];
+            var munging, demunged,
+                needParam = [ "keyword" ],
+                munged = $(this).text();
 
             munging = $.map($.makeArray(options.munging), function(element, i) {
                 return $.type(element) === "string"
