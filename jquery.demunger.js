@@ -4,7 +4,7 @@
     $.fn.demunge = function(options) {
         var defaults = {
             munging: "reverse",
-            mailTo: true,
+            mailTo: false,
             clear: ""
         };
 
