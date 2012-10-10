@@ -3,7 +3,7 @@
 !function($) {
     $.fn.demunge = function(userOptions) {
         var options = {
-            munging: "reverse",
+            munging: { type: "traditional", param: "[]" },
             mailTo: false,
             clear: ""
         };
