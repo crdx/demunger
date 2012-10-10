@@ -4,7 +4,8 @@
     $.fn.demunge = function(options) {
         var defaults = {
             munging: "reverse",
-            mailTo: true
+            mailTo: true,
+            clear: ""
         };
 
         options = $.extend({}, defaults, options);
@@ -45,6 +46,9 @@
 
             if (options.mailTo)
                 demunged = $("<a />").attr("href", "mailto:" + demunged).text(demunged);
+
+            if ($.type(options.clear) !== "undefined" && options.clear.length > 0)
+                $(options.clear).empty();
 
             $(this).html(demunged);
         });
