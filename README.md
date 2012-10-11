@@ -4,7 +4,7 @@
 
 [*Munging*](http://en.wikipedia.org/wiki/Address_munging) is the practice of disguising an email address to prevent it from being automatically collected and sent spam. The problem with this technique is that, while it's effective, it makes it inconvenient for someone to get the actual email address without having to manually revert what was done to it to disguise it. As you might imagine, that can be annoying.
 
-This plugin transparently automates that process so to the end user it appears as though it hasn't even been disguised. The advantage of doing this with JavaScript is that if for whatever reason scripting is not available then the disguised address will appear in the page as-is and it can still be reverted manually.
+This plugin transparently automates that process so that to the end user it appears as though it hasn't even been disguised. The advantage of doing this with JavaScript is that if for whatever reason scripting is not available then the disguised address will appear in the page as-is and it can still be reverted manually.
 
 ## Usage
 
