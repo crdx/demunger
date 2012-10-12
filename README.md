@@ -166,10 +166,18 @@ Here's a contrived example.
 </script>
 ```
 
-## Licence
+## Running the tests
 
-[MIT](https://github.com/crdx/demunger/blob/master/LICENCE.md).
+1. Install QUnit.
+
+        git submodule update
+
+2. Open `test/index.html` in your favourite browser.
 
 ## Bugs or contributions
 
 Open an [issue](http://github.com/crdx/demunger/issues) or send a [pull request](http://github.com/crdx/demunger/pulls).
+
+## Licence
+
+[MIT](https://github.com/crdx/demunger/blob/master/LICENCE.md).
