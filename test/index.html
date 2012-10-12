@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>demunger.jquery.js tests</title>
+    <link rel="stylesheet" href="qunit/qunit/qunit.css">
+    <script src="qunit/qunit/qunit.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="../jquery.demunger.js"></script>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script>
+
+        module("type");
+        doTypeTest("reverse", "moc.elpmaxe@eno-on", { munging: "reverse" });
+        doTypeTest("keyword", "no-one@examREMOVEMEple.com", { munging: { type: "keyword", param: "REMOVEME" } });
+        doTypeTest("traditional", "no-one(at)example(dot)com", { munging: { type: "traditional", param: "()" } });
+        doTypeTest("spaces", "n o - o n e @ e x a m p l e . c o m", { munging: "spaces" });
+
+        doTypeTest("multiple types", "m o c (dot) e l pREMOVEME m a x e (at) e n o - o n", {
+            munging: [{ type: "traditional", param: "()" },
+                      { type: "keyword", param: "REMOVEME" },
+                      "spaces",
+                      "reverse"]
+        });
+
+        module("mailTo");
+        doMailToTest("with", true);
+        doMailToTest("without", false);
+
+        module("clear");
+        doClearTest();
+
+        function doTypeTest(name, munged, options)
+        {
+            test(name, function() {
+                $("#qunit-fixture").append($("<span />").addClass("ea").html(munged));
+
+                $(".ea").demunge(options);
+
+                equal($(".ea").html(), "no-one@example.com");
+            });
+        }
+
+        function doMailToTest(name, mailTo)
+        {
+            test(name, function() {
+                $("#qunit-fixture").append($("<span />").addClass("ea").html("moc.elpmaxe@eno-on"));
+
+                $(".ea").demunge({ munging: "reverse", mailTo: mailTo });
+
+                if (mailTo)
+                {
+                    equal($(".ea a").length, 1);
+                    equal($(".ea a").attr("href"), "mailto:no-one@example.com");
+                    equal($(".ea a").text(), "no-one@example.com");
+                }
+                else
+                {
+                    equal($(".ea a").length, 0);
+                    equal($(".ea").html(), "no-one@example.com");
+                }
+            });
+        }
+
+        function doClearTest()
+        {
+            test("with", function() {
+                $("#qunit-fixture").append($("<span />").addClass("ea").html("moc.elpmaxe@eno-on"));
+                $("#qunit-fixture").append($("<span />").addClass("clear").html("clear me"));
+
+                $(".ea").demunge({ munging: "reverse", clear: ".clear" });
+
+                equal($(".clear").html().length, 0);
+            });
+        }
+    </script>
+</body>
+</html>
