@@ -170,7 +170,7 @@ Here's a contrived example.
 
 1. Install QUnit.
 
-        git submodule update
+        git submodule update --init
 
 2. Open `test/index.html` in your favourite browser.
 
