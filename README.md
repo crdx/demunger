@@ -180,4 +180,4 @@ Open an [issue](http://github.com/crdx/demunger/issues) or send a [pull request]
 
 ## Licence
 
-[MIT](https://github.com/crdx/demunger/blob/master/LICENCE.md).
+[MIT](LICENCE.md).
