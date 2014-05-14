@@ -168,11 +168,7 @@ Here's a contrived example.
 
 ## Running the tests
 
-1. Install QUnit.
-
-        git submodule update --init
-
-2. Open `test/index.html` in your favourite browser.
+1. Open `test/index.html` in your favourite browser.
 
 ## Bugs or contributions
 
