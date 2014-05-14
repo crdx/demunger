@@ -2,7 +2,7 @@
   "name": "demunger",
   "title": "jQuery Demunger",
   "description": "a jQuery plugin that transparently demunges common email address munging techniques.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "crdx",
     "url": "http://crdx.org"
