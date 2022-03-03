@@ -170,7 +170,7 @@ Here's a contrived example.
 
 1. Open `test/index.html` in your favourite browser.
 
-## Bugs or contributions
+## Contributions
 
 Open an [issue](https://github.com/crdx/demunger/issues) or send a [pull request](https://github.com/crdx/demunger/pulls).
 
